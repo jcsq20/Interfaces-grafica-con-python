@@ -1,11 +1,15 @@
 import toga
+from app.consts import *
 class PokeDex(toga.App):
     def __init__(self, title, id):
         toga.App.__init__(self, title, id)
+
         self.title = title
+        self.size = (WIDTH, HEIGHT)
+
     def startup(self):
         self.main_window = toga.MainWindow("main", title=self.title,
-                                            size=(400,500))#ancho y alto en px
+                                            size=self.size)#ancho y alto en px
 
         box = toga.Box()
         self.main_window.content = box
