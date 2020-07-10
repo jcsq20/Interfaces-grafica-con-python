@@ -28,9 +28,14 @@ class PokeDex(toga.App):
         self.create_table()
     
     def create_table(self):
-        self.table = toga.Table(self.heading, data=self.data)
+        self.table = toga.Table(self.heading, data=self.data,
+                                on_select=self.select_element)
 
     #CALLBACKS
+    def select_element(self, widget, row):
+        if row:
+            print(row.nombre)
+
 if __name__ == "__main__":
     Pokedex = PokeDex("Pokedex", "com.codigofacilito.Pokedex")
     Pokedex.main_loop()
